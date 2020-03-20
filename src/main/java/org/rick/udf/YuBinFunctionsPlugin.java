@@ -17,6 +17,7 @@ public class YuBinFunctionsPlugin implements Plugin {
                 .add(IsNullFunction.class)
                 .add(IsEqualOrNullFunction.class)
                 .add(StringFunction.class)
+                .add(AvgFunction.class)
                 .build();
 
     }
