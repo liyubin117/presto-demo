@@ -44,4 +44,11 @@ public class BasicScalarFunction {
         return Long.valueOf(arg + 1);
     }
 
+    @ScalarFunction(value = "printaddtwo")
+    @Description("this is a function printtwo")
+    @SqlType(StandardTypes.INTEGER)
+    public static long printaddtwo (@SqlType(StandardTypes.INTEGER) long arg) {
+        return Long.valueOf(arg + 2);
+    }
+
 }
