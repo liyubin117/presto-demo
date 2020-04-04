@@ -2,6 +2,7 @@ package org.rick.udf;
 
 import com.facebook.presto.spi.function.Description;
 import com.facebook.presto.spi.function.ScalarFunction;
+import com.facebook.presto.spi.function.SqlNullable;
 import com.facebook.presto.spi.function.SqlType;
 import com.facebook.presto.spi.type.StandardTypes;
 import io.airlift.slice.Slice;
@@ -13,7 +14,7 @@ import io.airlift.slice.Slices;
  * @description TODO
  */
 
-public class StringFunction {
+public class BasicScalarFunction {
     @ScalarFunction("str_lower")
     @Description("lower string")
     @SqlType(StandardTypes.VARCHAR)
@@ -34,6 +35,13 @@ public class StringFunction {
     @SqlType(StandardTypes.INTEGER)
     public static long print_one(@SqlType(StandardTypes.INTEGER) long arg){
         return 1;
+    }
+
+    @ScalarFunction(value = "printaddone", calledOnNullInput = true)
+    @Description("this is a function printone")
+    @SqlType(StandardTypes.INTEGER)
+    public static long printaddone (@SqlNullable @SqlType(StandardTypes.INTEGER) Long arg) {
+        return Long.valueOf(arg + 1);
     }
 
 }

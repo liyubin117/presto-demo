@@ -16,7 +16,7 @@ public class YuBinFunctionsPlugin implements Plugin {
         return ImmutableSet.<Class<?>>builder()
                 .add(IsNullFunction.class)
                 .add(IsEqualOrNullFunction.class)
-                .add(StringFunction.class)
+                .add(BasicScalarFunction.class)
                 .add(AvgFunction.class)
                 .build();
 
